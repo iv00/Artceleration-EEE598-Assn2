@@ -21,6 +21,8 @@ public class ArtView extends View {
     private float mTextHeight;
     private Bitmap imgbmp, transbmp, transbmp_trunc;
     private int offset_x = 200;
+    private Bitmap a_bmp;
+
     public ArtView(Context context) {
         super(context);
         init();
@@ -39,6 +41,10 @@ public class ArtView extends View {
 
     public void init(){
         imgbmp = BitmapFactory.decodeResource(getResources(), R.drawable.asuhayden);
+        BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        a_bmp = BitmapFactory.decodeResource(getResources(), R.drawable.char0, opts);
+
         transbmp = BitmapFactory.decodeResource(getResources(), R.drawable.asuhayden2);
         transbmp_trunc =Bitmap.createBitmap(transbmp, offset_x,0,transbmp.getWidth()-offset_x, transbmp.getHeight());
     }
